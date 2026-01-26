@@ -644,3 +644,47 @@ body{
 
 
 .sep{ border:0; border-top:1px solid rgba(15, 23, 42, .08); }
+
+
+/* Inline CTA link inside a normal (non-clickable) card */
+.card-inline-cta{
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+
+  margin-top: 12px;
+  padding: 10px 8px;
+
+  border-radius: 999px;
+  border: 1px solid rgba(41,128,185,.22);
+  background: rgba(41,128,185,.10);
+
+  color: var(--accent);
+  font-weight: 800;
+  text-decoration: none;
+
+  transition: transform .15s ease, box-shadow .15s ease, background .15s ease, border-color .15s ease;
+}
+
+.card-inline-cta:hover{
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-soft);
+  background: rgba(41,128,185,.16);
+  border-color: rgba(41,128,185,.35);
+}
+
+.card-inline-cta:focus-visible{
+  outline: 3px solid rgba(41,128,185,.35);
+  outline-offset: 2px;
+}
+
+
+.card.has-inline-cta{
+  display: flex;
+  flex-direction: column;
+}
+
+.card.has-inline-cta .card-inline-cta{
+  margin-top: auto; /* pushes CTA to bottom */
+  align-self: flex-start;
+}
