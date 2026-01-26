@@ -19,16 +19,24 @@
 }
 
 *{ box-sizing:border-box; }
-html,body{ height:100%; }
+html, body { height: 100%; }
 body{
   margin:0;
   font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, "Apple Color Emoji","Segoe UI Emoji";
-  color:var(--text);
-  background:
-    radial-gradient(900px 400px at 15% 0%, rgba(41,128,185,.12), transparent 60%),
-    radial-gradient(800px 380px at 80% 10%, rgba(133,193,233,.20), transparent 55%),
-    var(--bg);
-  line-height:1.55;
+  color: var(--text);
+  line-height: 1.55;
+
+  /* mobile-safe background */
+  min-height: 100svh;            /* better than 100vh on mobile */
+  background-color: #ffffff;      /* what the rest of the page becomes */
+  background-image: linear-gradient(
+    to bottom,
+    #f6fbff 0%,
+    #edf6ff 55%,
+    #ffffff 100%
+  );
+  background-repeat: no-repeat;
+  background-size: 100% 100svh;   /* gradient only fills the viewport */
 }
 
 a{ color:inherit; text-decoration:none; }
@@ -688,3 +696,4 @@ body{
   margin-top: auto; /* pushes CTA to bottom */
   align-self: flex-start;
 }
+
