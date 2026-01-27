@@ -1,12 +1,14 @@
 // TechTethered Static Site - script.js
 
 (function () {
-  // Highlight active nav link based on current file
-  const path = (location.pathname.split("/").pop() || "index.html").toLowerCase();
-  document.querySelectorAll("[data-nav]").forEach(a => {
-    const href = (a.getAttribute("href") || "").toLowerCase();
-    if ((path === "" && href === "index.html") || href === path) a.classList.add("active");
-    if (path === "index.html" && href === "./") a.classList.add("active");
+  // Active nav highlight (works with folder/index.html URLs)
+document.querySelectorAll('[data-nav]').forEach(link => {
+  const linkPath = new URL(link.href).pathname.replace(/\/$/, '');
+  const currentPath = window.location.pathname.replace(/\/$/, '');
+
+  if (linkPath === currentPath) {
+    link.classList.add('active');
+  }
   });
 
   // Mobile menu toggle
@@ -74,3 +76,4 @@
     });
   }
 })();
+
