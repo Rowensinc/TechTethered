@@ -137,7 +137,9 @@ hr.sep{
   color: var(--text);
 }
 .navlinks a.active{
-  color: var(--text);
+  color: var(--accent);
+  font-weight: 700;
+  border-bottom: 2px solid var(--accent);
   background: rgba(41,128,185,.14);
 }
 
@@ -697,3 +699,4 @@ body{
   margin-top: auto; /* pushes CTA to bottom */
   align-self: flex-start;
 }
+
